@@ -43,10 +43,10 @@ func serveApplication() {
 
 	protectedRoutes := router.Group("/api")
 	protectedRoutes.Use(middleware.JWTAuthMiddleware())
-	protectedRoutes.POST("/entry", controller.AddEntry)
-	protectedRoutes.GET("/entry", controller.GetAllEntries)
 	protectedRoutes.POST("/customer", controller.AddCustomer)
 	protectedRoutes.GET("/customer", controller.GetAllCustomer)
+	protectedRoutes.POST("/product", controller.AddProduct)
+	protectedRoutes.POST("/bank", controller.AddBank)
 
 	router.Run(":8080")
 	fmt.Println("Server running on port 8080")
